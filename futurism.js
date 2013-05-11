@@ -871,17 +871,15 @@
 							"top":"0",
 							"left":"0",
 							}
-						,$(obj).attr("time"), function() {
+						,time, function() {
 						
 							if($(obj).attr("forever")==""){
-							
-								$(obj)
-									.delay(time);
 			  
 								if(this.id.split("_").pop()==0){
 								
 									temp = new futurism;
 									temp.explode(obj);
+									delete temp;
 									
 								}
 								
