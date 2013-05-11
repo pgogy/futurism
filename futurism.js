@@ -850,8 +850,6 @@
 			
 			}
 			
-			console.log(time);
-			
 			doc_width = $(document).width();
 			doc_height = $(document).height();
 			
@@ -866,10 +864,8 @@
 			  
 				if($(obj).attr("loop")){
 					
-					$(obj)
-						.delay(time);
-			
 					$(this)
+						.delay(time)
 						.css("position","relative")
 						.animate({
 							"top":"0",
