@@ -1370,7 +1370,7 @@
 			$(document.getElementById(letter))
 			  .delay(time)
 			  .animate({
-				"font-size": (100 + inc) + "%",
+				"font-size": (100 + parseInt(step)) + "%",
 			  }, $(obj).attr("time"), $(obj).attr("easing"), function() {
 			  
 				if($(obj).attr("loop")){							
