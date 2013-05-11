@@ -859,7 +859,6 @@
 			  .css("position","relative")
 			  .attr("coord_left",position.left)
 			  .attr("coord_top",position.top)
-			  .delay(time)
 			  .animate({
 				"left": left_string + Math.floor(Math.random(0,500)*doc_width),
 				"top": top_string + Math.floor(Math.random(0,500)*doc_height),
@@ -876,6 +875,9 @@
 						,$(obj).attr("time"), function() {
 						
 							if($(obj).attr("forever")==""){
+							
+								$(obj)
+									.delay(time);
 			  
 								if(this.id.split("_").pop()==0){
 								
