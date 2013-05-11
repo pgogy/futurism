@@ -815,7 +815,8 @@
 							if(parseInt($(this).attr("id").split("_").pop())+1==letters.length){
 
 								temp = new futurism;
-								temp.heartbeat(obj);
+								temp.fullwave(obj);
+								delete temp;
 
 							}
 						
