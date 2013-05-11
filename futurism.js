@@ -1,4 +1,6 @@
 	var futurism = function(){};
+	
+	/* Shape effects */
 
 	futurism.prototype.drawcircle = function(obj, index){
 			
@@ -202,152 +204,9 @@
 	
 	}
 	
-	futurism.prototype.reverse = function(obj, index){
 	
-		text = obj.innerHTML;
-			
-		var s = "";
-		var i = text.length;
-		while (i>0) {
-			s += text.substring(i-1,i);
-			i--;
-		}
-			
-		obj.innerHTML = s;	
-		
-		if($(obj).attr("time")!=undefined){
-		
-			time = parseInt($(obj).attr("time"));
-		
-		}else{
-		
-			time = 1000;
-			
-		}
-
-		if($(obj).attr("loop")){
-
-			temp = new futurism;
-				
-			if($(obj).attr("forever")!=""){
-			
-				setTimeout( function(){
-					temp.reverse(obj);
-				}, time);
-			
-			}else{
-			
-				setTimeout( function(){
-					temp.reverse(obj);
-				}, time);
-			
-			}
-				
-		}
-		
-	};
 	
-	futurism.prototype.wordswap = function(obj, index){
-	
-		text = obj.innerHTML.split(" ");
-			
-		var i = text.length, j, tempi, tempj;
-		if ( i === 0 ) return false;
-		while ( --i ) {
-			j = Math.floor( Math.random() * ( i + 1 ) );
-			tempi = text[i];
-			tempj = text[j];
-			text[i] = tempj;
-			text[j] = tempi;
-		}
-			
-		obj.innerHTML = text.join(" ");	
-		
-		if($(obj).attr("time")!=undefined){
-		
-			time = parseInt($(obj).attr("time"));
-		
-		}else{
-		
-			time = 1000;
-			
-		}
-
-		if($(obj).attr("loop")){
-
-			temp = new futurism;
-				
-			if($(obj).attr("forever")!=""){
-			
-				setTimeout( function(){
-					temp.wordswap(obj);
-				}, time);
-			
-			}else{
-			
-				setTimeout( function(){
-					temp.wordswap(obj);
-				}, time);
-			
-			}
-				
-		}
-		
-	};
-				
-	futurism.prototype.wordangle = function(obj){
-	
-		position = $(obj).position();
-	
-		$(obj)
-		.css(
-			{
-			'left' : position.left,
-			'top' : position.top,
-			'position' : "absolute",
-			'margin-right' : $(obj).width(),
-			'-webkit-transform' : "rotate(" + $(obj).attr("angle") + "deg)",
-			'-moz-transform' : "rotate(" + $(obj).attr("angle") + "deg)",
-			'-o-transform' : "rotation(" + $(obj).attr("angle") + "deg)",
-			'-ms-transform' : "rotation(" + $(obj).attr("angle") + "deg)",
-			'transform' : "rotation(" + $(obj).attr("angle") + "deg)"}
-		);
-		
-	};
-	
-	futurism.prototype.textsize = function(obj){
-		
-		if($(obj).attr("time")!=undefined){
-		
-			time = parseInt($(obj).attr("time"));
-		
-		}else{
-		
-			time = 1000;
-			
-		}
-		
-		$(obj).animate({
-			"font-size":$(obj).attr("size"),
-		  }, time, function() {
-			if($(obj).attr("loop")){
-
-					$(obj)
-						.animate({"font-size":"100%"},time, function() {
-							
-							if($(obj).attr("forever")==""){
-								
-									temp = new futurism;
-									temp.textsize(obj);
-								
-							}
-				
-						});
-				
-				}
-		  });
-	
-	};
+	/* text shape effects */
 	
 	futurism.prototype.textjump = function(obj){
 	
@@ -1281,6 +1140,10 @@
 	
 	};
 	
+	
+	
+	/* Content altering effects */
+	
 	futurism.prototype.wordswitch = function(obj){
 	
 		console.log($(obj).attr("words"));
@@ -1339,6 +1202,104 @@
 	
 	};
 
+	futurism.prototype.reverse = function(obj, index){
+	
+		text = obj.innerHTML;
+			
+		var s = "";
+		var i = text.length;
+		while (i>0) {
+			s += text.substring(i-1,i);
+			i--;
+		}
+			
+		obj.innerHTML = s;	
+		
+		if($(obj).attr("time")!=undefined){
+		
+			time = parseInt($(obj).attr("time"));
+		
+		}else{
+		
+			time = 1000;
+			
+		}
+
+		if($(obj).attr("loop")){
+
+			temp = new futurism;
+				
+			if($(obj).attr("forever")!=""){
+			
+				setTimeout( function(){
+					temp.reverse(obj);
+				}, time);
+			
+			}else{
+			
+				setTimeout( function(){
+					temp.reverse(obj);
+				}, time);
+			
+			}
+				
+		}
+		
+	};
+	
+	futurism.prototype.wordswap = function(obj, index){
+	
+		text = obj.innerHTML.split(" ");
+			
+		var i = text.length, j, tempi, tempj;
+		if ( i === 0 ) return false;
+		while ( --i ) {
+			j = Math.floor( Math.random() * ( i + 1 ) );
+			tempi = text[i];
+			tempj = text[j];
+			text[i] = tempj;
+			text[j] = tempi;
+		}
+			
+		obj.innerHTML = text.join(" ");	
+		
+		if($(obj).attr("time")!=undefined){
+		
+			time = parseInt($(obj).attr("time"));
+		
+		}else{
+		
+			time = 1000;
+			
+		}
+
+		if($(obj).attr("loop")){
+
+			temp = new futurism;
+				
+			if($(obj).attr("forever")!=""){
+			
+				setTimeout( function(){
+					temp.wordswap(obj);
+				}, time);
+			
+			}else{
+			
+				setTimeout( function(){
+					temp.wordswap(obj);
+				}, time);
+			
+			}
+				
+		}
+		
+	};
+				
+	
+	
+	
+	/* Text size effects */
+	
 	futurism.prototype.hostage = function(obj, index){
 	
 		results = this.preparesplit(obj,"hostage",index);
@@ -1384,6 +1345,7 @@
 		}
 		
 	};
+	
 	
 	futurism.prototype.trumpet = function(obj, index){
 	
@@ -1569,6 +1531,8 @@
 	
 	
 	
+	
+	
 	futurism.prototype.preparesplit = function(obj, div_id, index){
 	
 		if(obj.childNodes.length==1){
@@ -1578,8 +1542,8 @@
 			position = $(obj).offset();
 			
 			$(obj).wrap(
-				//"<div style='display:inline; left:" + position.left + "px; top:" + position.top + "px; height:" + height +"px; border:2px solid blue; width:" + width + "px' />"
-				"<div style='display:inline' />"
+				"<div style='display:inline; left:" + position.left + "px; top:" + position.top + "px; height:" + height +"px; border:2px solid blue; width:" + width + "px' />"
+				//"<div style='display:inline' />"
 			);
 	
 			text = obj.innerHTML;				
@@ -1633,6 +1597,9 @@
 	
 	
 	
+	
+	
+	/* Start off the effects */
 	
 	var futobj = new futurism;
 
