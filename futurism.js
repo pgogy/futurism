@@ -863,9 +863,7 @@
 			  .animate({
 				"left": left_string + Math.floor(Math.random(0,500)*doc_width),
 				"top": top_string + Math.floor(Math.random(0,500)*doc_height),
-			  }, $(obj).attr("time"), $(obj).attr("easing"), function() {	
-
-				console.log("done");
+			  }, time, $(obj).attr("easing"), function() {	
 			  
 				if($(obj).attr("loop")){							
 			
