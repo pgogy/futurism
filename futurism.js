@@ -1362,6 +1362,8 @@
 			step = 20;
 			
 		}	
+		
+		inc = step;
 	
 		while(letter = end.shift()){
 		
@@ -1370,7 +1372,7 @@
 			$(document.getElementById(letter))
 			  .delay(time)
 			  .animate({
-				"font-size": (100 + parseInt(step)) + "%",
+				"font-size": (100 + parseInt(inc)) + "%",
 			  }, $(obj).attr("time"), $(obj).attr("easing"), function() {
 			  
 				if($(obj).attr("loop")){							
@@ -1398,7 +1400,7 @@
 				
 			  });
 			  
-			  inc+=40;
+			  inc+=step;
 			  
 		}
 		
