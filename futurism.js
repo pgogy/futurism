@@ -772,7 +772,7 @@
 					
 						if(parseInt($(this).attr("id").split("_").pop())+1==letters.length){
 						
-							if($(obj).attr("loop")){
+							if($(obj).attr("loop")==""){
 
 								temp = new futurism;
 								temp.surfacewave(obj);
