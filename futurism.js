@@ -391,14 +391,12 @@
 			
 			position = $(obj).position();
 			
-			console.log(position);
-			
 			width = (letters.length * 10 / 2);	
 
 			last_pos = Array();
 			
 			$(obj).wrap(
-				"<div style='position:fixed; left:" + position_main.left + "px; top:" + (position_main.top + (width)) + 100 + "px;' />"
+				"<div style='display:inline; margin-right:" + width + "' />"
 			);
 						
 			obj.innerHTML = newinnerHTML;
@@ -413,7 +411,7 @@
 				.css("position","fixed")
 				.animate(
 					  {"top":y_pos + position.top,
-					  "left":x_pos + position.left}, 500);
+					  "left":x_pos + (position.left + (width/2))}, 500);
 			
 			}
 
