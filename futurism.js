@@ -905,13 +905,13 @@
 	
 	futurism.prototype.righthandside = function(obj){
 
-		if($(obj).attr("righthandside")){
+		if(!$(obj).attr("righthandside")){
 		
 			width = $(obj).width();
 			height = $(obj).height();
 			
 			$(obj).wrap(
-				"<div style='display:inline; border:1px solid red; position:relative; margin-right:" + width + "px; width:" + width + "px; height:" + height +"px' />"
+				"<div style='display:inline; position:relative; margin-right:" + width + "px; width:" + width + "px; height:" + height +"px' />"
 			);
 	
 			$(obj).attr("righthandside","true");
