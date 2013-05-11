@@ -483,7 +483,7 @@
 			height = $(obj).height();
 			
 			$(obj).wrap(
-				"<div style='display:inline' />"
+				"<div style='display:inline; margin-right: " + width + "' />"
 			);
 	
 			text = obj.innerHTML;				
@@ -513,14 +513,14 @@
 		
 			for(x=letters.length;x!=-1;x--){	
 				
-				x_pos =  parseInt((width-(x*4)/2) * Math.cos( (angle * x) * (3.14/180) ) );
+				x_pos =  parseInt((width-(x*7)/2) * Math.cos( (angle * x) * (3.14/180) ) );
 				
-				y_pos = parseInt((width-(x*4)/2) * Math.sin( (angle * x) * (3.14/180) ) );
+				y_pos = parseInt((width-(x*7)/2) * Math.sin( (angle * x) * (3.14/180) ) );
 	
 				$(document.getElementById(letters[x]))
 				.css({"position":"relative" })
-				.css({"top":y_pos+(letters.length-x)})
-				.css({"left":x_pos+position.left+(letters.length-x)});
+				.css({"top":y_pos})
+				.css({"left":(x_pos - (x*5)) + width});
 				
 			}
 
@@ -911,7 +911,7 @@
 			height = $(obj).height();
 			
 			$(obj).wrap(
-				"<div style='display:inline; position:relative; margin-right:" + width + "px; width:" + width + "px; height:" + height +"px' />"
+				"<div style='display:inline; position:relative; width:" + width + "px; height:" + height +"px' />"
 			);
 	
 			$(obj).attr("righthandside","true");
@@ -929,9 +929,9 @@
 		}
 	
 		$(obj)
-			.css("position","absolute")
+			.css("position","relative")
 			.animate({
-				"left":$(document).width() - $(obj).width(),
+				"left":$(document).width() - ($(obj).width() * 2),
 			  }, time, $(obj).attr("easing"), function(){
 			  
 				if($(obj).attr("loop")){							
