@@ -1538,8 +1538,8 @@
 			position = $(obj).offset();
 			
 			$(obj).wrap(
-				"<div style='border:1px solid red; display:inline; left:" + position.left + "px; top:" + position.top + "px; height:" + height +"px; border:2px solid blue; width:" + width + "px' />"
-				//"<div style='display:inline' />"
+				//"<div style='border:1px solid red; display:inline; left:" + position.left + "px; top:" + position.top + "px; height:" + height +"px; border:2px solid blue; width:" + width + "px' />"
+				"<div style='display:inline' />"
 			);
 	
 			text = obj.innerHTML;				
