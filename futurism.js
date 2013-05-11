@@ -752,7 +752,7 @@
 	
 	futurism.prototype.surfacewave = function(obj, index){
 	
-		if(if(obj.childNodes.length==1){
+		if($(obj).children().length==0){
 	
 			results = this.preparesplit(obj,"surfacewave",index);
 	
@@ -761,10 +761,19 @@
 		
 		}else{
 		
-			letters = $(obj).childNodes;
+			letters = new Array();
+		
+			$(obj)
+				.children()
+				.each(function(){
+				
+					letters[letters.length] = $(this).attr('id');
+			});
 			time = $(obj).attr("time");
 		
 		}
+		
+		total = letters.length;
 	
 		for(x=0;x<letters.length;x++){
 		
@@ -777,14 +786,18 @@
 			,$(obj).attr("time"), $(obj).attr("easing"), function() {					
 				
 					$(this).animate({"top":0},$(obj).attr("time"), $(obj).attr("easing"),
+					
 					function() {
 					
-						if(parseInt($(this).attr("id").split("_").pop())+1==letters.length){
+						id = $(this).attr("id").split("_").pop();
+					
+						if(parseInt(id)==total-1){
 						
-							if($(obj).attr("loop")==""){
+							if($(obj).attr("loop")!=""){
 
 								temp = new futurism;
 								temp.surfacewave(obj);
+								delete temp;
 							
 							}
 
