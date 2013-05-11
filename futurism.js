@@ -752,10 +752,19 @@
 	
 	futurism.prototype.surfacewave = function(obj, index){
 	
-		results = this.preparesplit(obj,"surfacewave",index);
+		if(if(obj.childNodes.length==1){
 	
-		letters = results[0];
-		time = results[1];
+			results = this.preparesplit(obj,"surfacewave",index);
+	
+			letters = results[0];
+			time = results[1];
+		
+		}else{
+		
+			letters = $(obj).childNodes;
+			time = $(obj).attr("time");
+		
+		}
 	
 		for(x=0;x<letters.length;x++){
 		
