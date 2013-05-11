@@ -447,14 +447,12 @@
 			
 			position = $(obj).position();
 			
-			console.log(position);
-			
 			width = (letters.length * 10 / 2);	
 
 			last_pos = Array();
 			
 			$(obj).wrap(
-				"<div style='position:fixed; left:" + position_main.left + "px; top:" + (position_main.top + (width)) + 100 + "px;' />"
+				"<div style='display:inline; margin-right:" + width + "' />"
 			);
 						
 			obj.innerHTML = newinnerHTML;
@@ -469,7 +467,7 @@
 				.css("position","fixed")
 				.css(
 					  {"top":y_pos + position.top,
-					  "left":x_pos + position.left});
+					  "left":x_pos + (position.left + (width/2))});
 			
 			}
 
@@ -1542,7 +1540,7 @@
 			position = $(obj).offset();
 			
 			$(obj).wrap(
-				"<div style='display:inline; left:" + position.left + "px; top:" + position.top + "px; height:" + height +"px; border:2px solid blue; width:" + width + "px' />"
+				"<div style='border:1px solid red; display:inline; left:" + position.left + "px; top:" + position.top + "px; height:" + height +"px; border:2px solid blue; width:" + width + "px' />"
 				//"<div style='display:inline' />"
 			);
 	
