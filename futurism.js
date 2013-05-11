@@ -864,7 +864,10 @@
 				"top": top_string + Math.floor(Math.random(0,500)*doc_height),
 			  }, time, $(obj).attr("easing"), function() {	
 			  
-				if($(obj).attr("loop")){							
+				if($(obj).attr("loop")){
+					
+					$(obj)
+						.delay(time);
 			
 					$(this)
 						.css("position","relative")
